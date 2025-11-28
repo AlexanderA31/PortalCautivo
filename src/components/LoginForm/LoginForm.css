@@ -1,0 +1,48 @@
+.login-form {
+  padding: 40px 30px;
+  background: white;
+  border-radius: 20px 20px 20px 20px;
+  min-height: 400px;
+}
+
+.login-form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-form__footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-form__link {
+  color: #0B283F;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.login-form__link:hover {
+  color: #0B283F;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .login-form {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 25px 15px;
+  }
+
+  .login-form__content {
+    gap: 18px;
+  }
+}

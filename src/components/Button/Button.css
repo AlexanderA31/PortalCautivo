@@ -1,0 +1,109 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #0B283F 0%, #1a4669 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(11, 40, 63, 0.3);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0a2238 0%, #164058 100%);
+  box-shadow: 0 6px 16px rgba(11, 40, 63, 0.4);
+  transform: translateY(-2px);
+}
+
+.button--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(11, 40, 63, 0.3);
+}
+
+.button--full-width {
+  width: 100%;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none !important;
+}
+
+.button--loading {
+  cursor: wait;
+}
+
+.button__spinner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__spinner svg {
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.button__spinner circle {
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 25;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -50;
+  }
+}
+
+.button__text {
+  transition: opacity 0.3s ease;
+}
+
+.button__text--loading {
+  opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}

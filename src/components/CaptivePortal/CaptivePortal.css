@@ -1,0 +1,205 @@
+.captive-portal {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.captive-portal__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0B283F 0%, #1a4669 50%, #0B283F 100%);
+  z-index: 0;
+}
+
+.captive-portal__background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.captive-portal__background::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+.captive-portal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.captive-portal__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+.captive-portal__card {
+
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.captive-portal__header {
+  background: linear-gradient(135deg, #0B283F 0%, #1a4669 100%);
+  color: white;
+
+  padding: 40px 50px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+}
+
+.captive-portal__header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.captive-portal__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 20px 0 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.captive-portal__subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 20px;
+  color: #f0a500;
+}
+
+.captive-portal__welcome {
+  font-size: 1.1rem;
+  margin: 15px 0 10px;
+  font-weight: 500;
+}
+
+.captive-portal__description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .captive-portal__card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .captive-portal__header {
+
+    padding: 60px 60px;
+  }
+
+  .captive-portal__title {
+    font-size: 2.2rem;
+  }
+
+  .captive-portal__subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .captive-portal {
+    padding: 15px;
+  }
+
+  .captive-portal__header {
+    padding: 30px 20px;
+  }
+
+  .captive-portal__title {
+    font-size: 1.6rem;
+  }
+
+  .captive-portal__subtitle {
+    font-size: 1.4rem;
+  }
+
+  .captive-portal__welcome {
+    font-size: 1rem;
+  }
+
+  .captive-portal__description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .captive-portal__title {
+    font-size: 1.4rem;
+  }
+
+  .captive-portal__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .captive-portal__header {
+    padding: 25px 15px;
+  }
+}
