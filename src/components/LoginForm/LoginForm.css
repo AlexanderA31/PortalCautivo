@@ -1,16 +1,39 @@
 .login-form {
-  padding: 40px 30px;
+  padding: 40px 50px;
   background: white;
   border-radius: 20px 20px 20px 20px;
-  min-height: 400px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form__header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form__header h2 {
+  font-size: 1.5rem;
+  color: #0B283F;
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.login-form__subtitle {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .login-form__content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   max-width: 400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .login-form__footer {
@@ -30,6 +53,41 @@
   color: #0B283F;
   text-decoration: underline;
 }
+
+/* Guest Access Link */
+.login-form__guest-link {
+  text-align: center;
+}
+
+.guest-link__text {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0 0 6px;
+  font-weight: 400;
+}
+
+.guest-link__button {
+  background: transparent;
+  color: #0B283F;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 0;
+}
+
+.guest-link__button:hover:not(:disabled) {
+  color: #0B283F;
+  text-decoration: underline;
+}
+
+.guest-link__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 @media (max-width: 767px) {
   .login-form {

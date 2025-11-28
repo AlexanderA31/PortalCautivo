@@ -5,7 +5,7 @@ import Checkbox from '../Checkbox/Checkbox';
 import TerminosCondiciones from '../TerminosCondiciones/TerminosCondiciones';
 import './LoginForm.css';
 
-const LoginForm = ({ onSubmit, isLoading }) => {
+const LoginForm = ({ onSubmit, isLoading, onGuestAccess }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -69,6 +69,13 @@ const LoginForm = ({ onSubmit, isLoading }) => {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      <div className="login-form__header">
+        <h2>Iniciar Sesión</h2>
+        <p className="login-form__subtitle">
+          Ingresa tu correo y contraseña institucional para conectarte a la red UEB.
+        </p>
+      </div>
+
       <div className="login-form__content">
         <Input
           type="email"
@@ -137,6 +144,18 @@ const LoginForm = ({ onSubmit, isLoading }) => {
         >
           {isLoading ? 'Conectando...' : 'Conectarse'}
         </Button>
+
+        {/* Enlace para invitados */}
+        <div className="login-form__guest-link">
+          <button 
+            type="button"
+            className="guest-link__button"
+            onClick={onGuestAccess}
+            disabled={isLoading}
+          >
+            Acceso para Invitados
+          </button>
+        </div>
       </div>
 
       {/* MODAL DE TÉRMINOS Y CONDICIONES */}
